@@ -1,5 +1,6 @@
 package ru.kurtukov.authservice.service;
 
+import org.springframework.stereotype.Service;
 import ru.kurtukov.authservice.exception.InvalidCredentials;
 import ru.kurtukov.authservice.exception.UnauthorizedUser;
 import ru.kurtukov.authservice.model.Authorities;
@@ -7,8 +8,13 @@ import ru.kurtukov.authservice.repository.UserRepository;
 
 import java.util.List;
 
+@Service
 public class AuthorizationService {
     UserRepository userRepository;
+
+    public AuthorizationService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<Authorities> getAuthorities(String user, String password) {
         if (isEmpty(user) || isEmpty(password)) {
