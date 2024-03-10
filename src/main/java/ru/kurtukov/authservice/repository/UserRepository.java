@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public class UserRepository {
     public List<Authorities> getUserAuthorities(String user, String password) {
-        System.out.println("getUserAuthorities");
         List<Authorities> authoritiesList = new ArrayList<>();
 
         // Список пользователей и их прав
